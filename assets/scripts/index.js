@@ -7,63 +7,62 @@ $(() => {
   setAPIOrigin(location, config)
 })
 
-var cards = [
+const cards = [
   {
-    rank: "queen",
-    suit: "hearts",
-    cardImage: "images/queen-of-hearts.png"
+    rank: 'queen',
+    suit: 'hearts',
+    cardImage: 'https://i.imgur.com/lGUjGtW.jpg'
   },
   {
-    rank: "queen",
-    suit: "diamonds",
-    cardImage: "images/queen-of-diamonds.png"
+    rank: 'queen',
+    suit: 'diamonds',
+    cardImage: 'https://i.imgur.com/lGUjGtW.jpg'
   },
   {
-    rank: "king",
-    suit: "hearts",
-    cardImage: "images/king-of-hearts.png"
+    rank: 'king',
+    suit: 'hearts',
+    cardImage: 'https://i.imgur.com/fxKYsDp.jpg'
   },
   {
-    rank: "king",
-    suit: "diamonds",
-    cardImage: "images/king-of-diamonds.png"
+    rank: 'king',
+    suit: 'diamonds',
+    cardImage: 'https://i.imgur.com/fxKYsDp.jpg'
   }
-];
-var cardsInPlay = [];
+]
+const cardsInPlay = []
 
-var checkForMatch = function() {
-  //this.setAttribute('src', cards[cardId].cardImage);
-  console.log(this);
-  if (cardsInPlay.length === 2){
-  if (cardsInPlay[0] === cardsInPlay[1]) {
-    alert("You found a match!");
-  } else {
-    alert("Sorry, try again");
-  };
-  };
-};
+const checkForMatch = function () {
+  // this.setAttribute('src', cards[cardId].cardImage)
+  console.log(this)
+  if (cardsInPlay.length === 2) {
+    if (cardsInPlay[0] === cardsInPlay[1]) {
+      alert('You found a match!')
+    } else {
+      alert('Sorry, try again')
+    }
+  }
+}
 
-var flipCard = function() {
-  var cardId = this.getAttribute('data-id');
-  console.log("User flipped " + cards[cardId].rank);
-  console.log(cards[cardId].suit);
-  console.log(cards[cardId].cardImage);
-  cardsInPlay.push(cards[cardId].rank);
-  this.setAttribute('src', cards[cardId].cardImage);
-  checkForMatch();
-};
+const flipCard = function () {
+  const cardId = this.getAttribute('data-id')
+  console.log('User flipped ' + cards[cardId].rank)
+  console.log(cards[cardId].suit)
+  console.log(cards[cardId].cardImage)
+  cardsInPlay.push(cards[cardId].rank)
+  this.setAttribute('src', cards[cardId].cardImage)
+  checkForMatch()
+}
 
-var createBoard = function() {
-  for (var i = 0; i < cards.length; i++) {
-    var cardElement = document.createElement('img');
-    cardElement.setAttribute('src', 'images/back.png');
-    cardElement.setAttribute('data-id', i);
-    cardElement.addEventListener('click', flipCard);
-    document.getElementById('game-board').appendChild(cardElement);
-  };
-};
-createBoard();
-
+const createBoard = function () {
+  for (let i = 0; i < cards.length; i++) {
+    const cardElement = document.createElement('img')
+    cardElement.setAttribute('src', 'https://i.imgur.com/5jUk3hV.png')
+    cardElement.setAttribute('data-id', i)
+    cardElement.addEventListener('click', flipCard)
+    document.getElementById('game-board').appendChild(cardElement)
+  }
+}
+createBoard()
 
 // use require with a reference to bundle the file and use it in this file
 // const example = require('./example')
